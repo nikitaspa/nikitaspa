@@ -1286,6 +1286,20 @@ export default function App() {
         onClose={() => setLightbox({ isOpen: false, url: '', title: '', desc: '' })}
       />
 
+      {/* Global Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918271712580"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-[90px] lg:bottom-8 right-6 z-[90] bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:-rotate-12 transition-transform duration-300">
+          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+          <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+        </svg>
+      </a>
+
     </div>
   );
 }
