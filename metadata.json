@@ -1,0 +1,6 @@
+{
+  "name": "Nikita Spa",
+  "description": "Premium wellness and massage sanctuary in Viman Nagar, Pune. Swedish, Deep Tissue, and Aroma therapy in a luxury sanctuary.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
