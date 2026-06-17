@@ -8,27 +8,27 @@ export const STATIC_MAP_IMAGE = 'https://lh3.googleusercontent.com/aida-public/A
 
 export const GALLERY_IMAGES = [
   {
-    url: 'https://lh3.googleusercontent.com/aida/AP1WRLuM8zGg3QBlJ7P9gTChRzQkHhMBIYoq-oTkBi6RMwtexZFCmbETfeEcV_s-6Q7nX7OdNoWw4iH1H80zpXiSkyVDeFP9wk_ispIEhDtYTgUEaRBD58be7UjL8I0IG9nI8_Y_zgH3-4CAQdq7NGffZWk0TTYNLuSxuMSjSpsgJsWLkfwwy9XeuAI115IY7L9Gr9chaBBsb3gGTtnBkAoqy-rsiScNYgUtDlaZwLNBdwyJXPsPZVHisftnpRGL',
+    url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200',
     title: 'Serene Lounge',
     description: 'A cozy welcoming area with premium warm gold lighting to set your relaxed mindset.'
   },
   {
-    url: 'https://lh3.googleusercontent.com/aida/AP1WRLvqG3R_5AUm3Z_ItX-5Ntnvxn1FOktI9Hs5Y7xYhycTDCBu0WywknWRNMS-y2e5okH-kD_MqknHzceUwUcuZ2wcGHsuwBOYGqDkMBsgXFqEKAaX4asCv8iAhCHQUI4_eb4J1XI0-sNVzIs_W_IM8L8W6mEQqweJSOjAF7EQ6KNHsIKBsV_nqrlLej7K8jt9AACBuILqTPvfqu1dzgc_YKh4nSeL0j4IZswXbvxnS-QdjlJEx-mIDU8YRLFj',
+    url: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=1200',
     title: 'Private Treatment Suite',
     description: 'Fully equipped luxury suites featuring comfortable anatomical therapy beds and soft drapes.'
   },
   {
-    url: 'https://lh3.googleusercontent.com/aida/AP1WRLtsrfB3Ck9Y0YURmw_1vV-kV1zD1cie-JrNi_B36jfs5qUyE8MQnAffrmlRQtx96W8tU6m4qB0-NXk-5DG1AyWtyj9o4Cui03UZHoX61UL2sAepkzdziGQDv8ooJQC6q-M7jnItlnwSWUkUdf_xjsyoTPSthblvg3xyyXpFz3gjXWAMEaQefV2c5yFbSLkAynFKvpj6vTRCP9aAbkpzjAWHa_ZtYgRa61yxHS16lI0lneoiZLGf1wFCr9oF',
+    url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=1200',
     title: 'Reception & Consultation Area',
     description: 'Our customer support team is ready to recommend personalized wellness therapies.'
   },
   {
-    url: 'https://lh3.googleusercontent.com/aida/AP1WRLsovWG9aN8LDZY0IBaBJs-aOWso6m4NsgXXnUO3l3qTQoOIJ6YTPATQGlftwyGLbdeTM0v0B3NFtTcZBhyrr_x5Gl3dgz05bCZmXeXxdjK4IyhtOUbRe8kesIWyzmYTDTWk7Ji1F3l4Xpdl7TfnA9BoWDogp9VxCbQlIKjwM53q1_O-L4wrP16VnVE21X5gruoKyBcMYm5CyWHL2hfQH0oa4KY4jk1K8FqyEbcL_Lgnae8p0fBDGWdUjmVB',
+    url: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=1200',
     title: 'Aromatic Healing & Essential Oils',
     description: 'Only 100% steam-distilled pure organic botanical oils for our aromatherapy sessions.'
   },
   {
-    url: 'https://lh3.googleusercontent.com/aida/AP1WRLuw4GBgo3PuacVZCmj5CX_9VB5hTuwtGB6QLYI4-jecBpBpBWrP5Dq71roiBzPzoenYIsFyXwqX_ua4zaxLerwcd3YcHb8MgbPHhs3i1R_Ugo5jwXUL3QhG_NFFm5o06N5XYxqbEuoMSZ8BoxCIrrHmhvDuvo-RwbPhiSXxPJ4hb-GYkD-tnyOxQ2NpkMDM9my-HtxBNz_y5mTRzkpCD5KdOU2T-ZeUMOZwL90We4a0OX0-A4dQlTRPTHA',
+    url: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200',
     title: 'Relaxation Session in Action',
     description: 'Skilled application of traditional deep muscle stretching and compression therapies.'
   }

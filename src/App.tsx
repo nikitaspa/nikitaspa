@@ -1247,12 +1247,12 @@ export default function App() {
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
-              className="relative w-full max-w-md bg-[#131313] border border-[#f2ca50]/30 rounded shadow-2xl overflow-hidden backdrop-blur-xl z-10"
+              className="relative w-full max-w-md bg-[#131313] border border-[#f2ca50]/30 rounded shadow-2xl backdrop-blur-xl z-10 max-h-[85vh] flex flex-col"
             >
-              <div className="p-6 md:p-8">
+              <div className="p-5 sm:p-8 overflow-y-auto custom-scrollbar flex-grow">
                 
                 {/* Header title */}
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 pb-3 border-b border-[#f2ca50]/10">
                   <div className="text-left space-y-0.5">
                     <h3 className="font-serif text-xl text-[#f2ca50] tracking-wide font-semibold">Book Your Escape</h3>
                     <p className="text-[10px] text-[#d0c5af] uppercase tracking-widest font-sans">Private Wellness suite reservation</p>

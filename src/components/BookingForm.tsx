@@ -178,7 +178,7 @@ export default function BookingForm({ onBookingSuccess, initialServiceId = '', i
             </div>
 
             {/* Date & Time Grid */}
-            <div id="form-date-time-grid" className="grid grid-cols-2 gap-4">
+            <div id="form-date-time-grid" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div id="date-picker-div">
                 <label id="lbl-date" className="block text-xs font-semibold tracking-widest text-[#f2ca50] mb-2 uppercase font-sans">
                   Preferred Date *
