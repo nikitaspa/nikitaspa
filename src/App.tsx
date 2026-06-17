@@ -52,14 +52,14 @@ const HERO_SLIDES = [
     description: "Relax. Refresh. Rejuvenate. Embark on a sensory journey of luxurious indulgence designed to restore harmonic balance to your busy body and active mind."
   },
   {
-    image: 'https://lh3.googleusercontent.com/aida/AP1WRLsovWG9aN8LDZY0IBaBJs-aOWso6m4NsgXXnUO3l3qTQoOIJ6YTPATQGlftwyGLbdeTM0v0B3NFtTcZBhyrr_x5Gl3dgz05bCZmXeXxdjK4IyhtOUbRe8kesIWyzmYTDTWk7Ji1F3l4Xpdl7TfnA9BoWDogp9VxCbQlIKjwM53q1_O-L4wrP16VnVE21X5gruoKyBcMYm5CyWHL2hfQH0oa4KY4jk1K8FqyEbcL_Lgnae8p0fBDGWdUjmVB',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=1600',
     subtitle: "100% ORGANIC HEALING OILS",
     boldTitle: "Soothe Mind & Senses with",
     goldTitle: "Pure Aromatherapies",
     description: "Only steam-distilled pure botanical essences are applied to target physical fatigue, improve deep circulation, and stimulate mental clarity."
   },
   {
-    image: 'https://lh3.googleusercontent.com/aida/AP1WRLvqG3R_5AUm3Z_ItX-5Ntnvxn1FOktI9Hs5Y7xYhycTDCBu0WywknWRNMS-y2e5okH-kD_MqknHzceUwUcuZ2wcGHsuwBOYGqDkMBsgXFqEKAaX4asCv8iAhCHQUI4_eb4J1XI0-sNVzIs_W_IM8L8W6mEQqweJSOjAF7EQ6KNHsIKBsV_nqrlLej7K8jt9AACBuILqTPvfqu1dzgc_YKh4nSeL0j4IZswXbvxnS-QdjlJEx-mIDU8YRLFj',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1600',
     subtitle: "SOUNDPROOF SANCTUARIES",
     boldTitle: "Protected Rest inside our",
     goldTitle: "VIP Private Suites",
