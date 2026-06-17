@@ -26,14 +26,14 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-import { 
-  SERVICES, 
-  WELLNESS_PACKAGES, 
-  WHY_CHOOSE_US, 
-  GALLERY_IMAGES, 
-  HERO_IMAGE, 
-  ABOUT_IMAGE, 
-  STATIC_MAP_IMAGE 
+import {
+  SERVICES,
+  WELLNESS_PACKAGES,
+  WHY_CHOOSE_US,
+  GALLERY_IMAGES,
+  HERO_IMAGE,
+  ABOUT_IMAGE,
+  STATIC_MAP_IMAGE
 } from './data';
 import { Booking } from './types';
 
@@ -77,7 +77,7 @@ export default function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [preSelectedService, setPreSelectedService] = useState('');
   const [isReservationsPanelOpen, setIsReservationsPanelOpen] = useState(false);
-  
+
   // Real-time synchronization
   const [bookingsTrigger, setBookingsTrigger] = useState(0);
   const [activeBookingCount, setActiveBookingCount] = useState(0);
@@ -151,7 +151,7 @@ export default function App() {
   const handleBookingSuccess = (newBooking: Booking) => {
     // Refresh parent state indicators
     setBookingsTrigger(prev => prev + 1);
-    
+
     // Auto collapse modal state after short delay
     setTimeout(() => {
       setIsBookingModalOpen(false);
@@ -240,23 +240,22 @@ export default function App() {
 
   return (
     <div className="bg-[#131313] text-[#e5e2e1] font-sans overflow-x-hidden min-h-screen flex flex-col selection:bg-[#f2ca50]/20 selection:text-[#f2ca50]">
-      
+
       {/* Sticky Header TopAppBar */}
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
-          headerScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${headerScrolled
             ? 'bg-[#131313]/95 backdrop-blur-xl py-3 shadow-lg border-[#f2ca50]/15'
             : 'bg-[#131313]/70 backdrop-blur-md py-5 border-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center">
-          
+
           {/* Brand Logo */}
-          <div 
-            onClick={() => scrollToElement('home')} 
+          <div
+            onClick={() => scrollToElement('home')}
             className="flex items-center gap-2 cursor-pointer group"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ rotate: 15 }}
               className="w-10 h-10 rounded-full bg-[#f2ca50]/10 border border-[#f2ca50]/30 flex items-center justify-center text-[#f2ca50]"
             >
@@ -283,11 +282,10 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollToElement(item.id)}
-                className={`transition-colors cursor-pointer relative pb-1 border-b-2 ${
-                  activeSection === item.id
+                className={`transition-colors cursor-pointer relative pb-1 border-b-2 ${activeSection === item.id
                     ? 'text-[#f2ca50] border-[#f2ca50]'
                     : 'text-[#d0c5af] border-transparent hover:text-white'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -387,7 +385,7 @@ export default function App() {
               >
                 SCHEDULE APPOINTMENT
               </button>
-              
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -516,16 +514,15 @@ export default function App() {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === idx ? 'w-6 bg-[#f2ca50]' : 'w-2 bg-white/40 hover:bg-white'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-6 bg-[#f2ca50]' : 'w-2 bg-white/40 hover:bg-white'
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
           </div>
 
           {/* Animated scroll down visual cue */}
-          <div 
+          <div
             onClick={() => scrollToElement('about')}
             className="absolute bottom-6 left-1/2 -translate-x-1/2 cursor-pointer opacity-50 hover:opacity-100 transition-opacity hidden lg:flex flex-col items-center gap-1 text-[10px] tracking-widest text-[#d0c5af] font-sans"
           >
@@ -536,7 +533,7 @@ export default function App() {
         {/* About Section */}
         <section id="about" className="py-24 px-6 max-w-[1240px] mx-auto scroll-mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
+
             {/* Aspect image frame with organic gold outline */}
             <div className="relative group">
               <div className="absolute -inset-3 border border-[#f2ca50]/20 rounded-lg group-hover:border-[#f2ca50]/45 transition-colors duration-500"></div>
@@ -605,7 +602,7 @@ export default function App() {
         {/* Ambience Gallery Section with Filters & Lightbox */}
         <section id="gallery" className="py-24 bg-[#0e0e0e] scroll-mt-20">
           <div className="max-w-[1240px] mx-auto px-6">
-            
+
             <div className="text-center space-y-3 mb-12">
               <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">JOURNEY OF THE SENSES</span>
               <h3 className="font-serif text-3xl text-white font-bold">Experience The Ambience</h3>
@@ -623,11 +620,10 @@ export default function App() {
                 <button
                   key={tab.key}
                   onClick={() => setGalleryFilter(tab.key)}
-                  className={`flex-1 text-center py-2 px-1 text-xs font-semibold tracking-wider font-sans border transition-all cursor-pointer ${
-                    galleryFilter === tab.key
+                  className={`flex-1 text-center py-2 px-1 text-xs font-semibold tracking-wider font-sans border transition-all cursor-pointer ${galleryFilter === tab.key
                       ? 'bg-[#f2ca50] text-[#3c2f00] border-[#f2ca50]'
                       : 'border-[#4d4635]/40 text-[#d0c5af] hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -692,7 +688,7 @@ export default function App() {
 
         {/* Signature Treatments / Services Section */}
         <section id="services" className="py-24 px-6 max-w-[1240px] mx-auto scroll-mt-20">
-          
+
           <div className="text-center space-y-3 mb-16">
             <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">THE RECOVERY PROTOCOL</span>
             <h3 className="font-serif text-3xl md:text-4xl text-white font-bold">Signature Wellness Massages</h3>
@@ -761,7 +757,7 @@ export default function App() {
         {/* Why Choose Us Section */}
         <section className="py-24 bg-[#0e0e0e] px-6">
           <div className="max-w-[1240px] mx-auto text-left">
-            
+
             <div className="flex flex-col lg:flex-row justify-between items-baseline mb-16 gap-6">
               <div className="space-y-3 lg:max-w-xl">
                 <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">THE EXCELLENCE FACTOR</span>
@@ -805,7 +801,7 @@ export default function App() {
 
         {/* Wellness Pricing Packages Section */}
         <section id="pricing" className="py-24 px-6 max-w-[1240px] mx-auto scroll-mt-20">
-          
+
           <div className="text-center space-y-3 mb-16">
             <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">COMPOUND CURATIONS</span>
             <h3 className="font-serif text-3xl md:text-4xl text-white font-bold">Signature Curated Bundles</h3>
@@ -822,11 +818,10 @@ export default function App() {
               return (
                 <div
                   key={pkg.id}
-                  className={`rounded flex flex-col justify-between p-8 relative transition-all duration-300 shadow-xl ${
-                    isPopular
+                  className={`rounded flex flex-col justify-between p-8 relative transition-all duration-300 shadow-xl ${isPopular
                       ? 'bg-[#1c1b1b] border-2 border-[#f2ca50] lg:scale-105 z-10'
                       : 'bg-[#1c1b1b]/70 border border-white/10'
-                  }`}
+                    }`}
                 >
                   {/* Decorative badge for best value */}
                   {isPopular && (
@@ -869,11 +864,10 @@ export default function App() {
                   <div className="mt-10 pt-4">
                     <button
                       onClick={() => triggerInstantBooking(pkg.treatmentIds?.[0] || '')}
-                      className={`w-full py-3.5 rounded text-xs font-semibold tracking-wider font-sans uppercase transition-all duration-300 cursor-pointer ${
-                        isPopular
+                      className={`w-full py-3.5 rounded text-xs font-semibold tracking-wider font-sans uppercase transition-all duration-300 cursor-pointer ${isPopular
                           ? 'bg-[#f2ca50] text-[#3c2f00] hover:brightness-110 shadow-lg'
                           : 'bg-transparent border border-[#f2ca50] text-[#f2ca50] hover:bg-[#f2ca50] hover:text-[#3c2f00]'
-                      }`}
+                        }`}
                     >
                       BOOK WELLNESS PACKAGE
                     </button>
@@ -889,7 +883,7 @@ export default function App() {
         {/* Dynamic Client Testimonials Board Section */}
         <section id="reviews" className="py-24 bg-[#0e0e0e] px-6 scroll-mt-20">
           <div className="max-w-[1240px] mx-auto">
-            
+
             <div className="text-center space-y-3 mb-16">
               <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">SOCIAL CONFIRMATION</span>
               <h3 className="font-serif text-3xl md:text-4xl text-white font-bold">Hear From Our Guests</h3>
@@ -907,7 +901,7 @@ export default function App() {
 
         {/* Direct Accordion-style Frequently Asked Questions (FAQ) Section */}
         <section id="faq" className="py-24 px-6 max-w-[800px] mx-auto scroll-mt-20">
-          
+
           <div className="text-center space-y-3 mb-16">
             <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">ANSWERS IN THE SPA</span>
             <h3 className="font-serif text-3xl text-white font-bold">Frequently Asked Questions</h3>
@@ -961,7 +955,7 @@ export default function App() {
         {/* Contact info, Map and Callback Request Form */}
         <section id="contact" className="py-24 bg-[#0e0e0e] px-6 border-t border-[#f2ca50]/10 scroll-mt-20">
           <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Contact metadata */}
             <div className="space-y-8 text-left">
               <div className="space-y-3">
@@ -975,7 +969,7 @@ export default function App() {
 
               {/* Contact specifics details */}
               <div className="space-y-6">
-                
+
                 <div className="flex gap-4 items-start">
                   <div className="w-12 h-12 rounded-full bg-[#f2ca50]/10 border border-[#f2ca50]/20 flex items-center justify-center text-[#f2ca50] shrink-0">
                     <MapPin size={20} />
@@ -1054,8 +1048,8 @@ export default function App() {
               </div>
 
               {/* Render dynamic Form */}
-              <BookingForm 
-                onBookingSuccess={handleBookingSuccess} 
+              <BookingForm
+                onBookingSuccess={handleBookingSuccess}
                 initialServiceId={preSelectedService}
               />
             </div>
@@ -1068,7 +1062,7 @@ export default function App() {
       {/* Structured Footer */}
       <footer className="w-full pt-20 pb-28 bg-[#111] border-t border-white/[0.05]">
         <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-          
+
           {/* Brand Col */}
           <div className="space-y-4">
             <h4 className="font-serif text-2xl text-[#f2ca50] tracking-widest font-bold uppercase">NIKITA SPA</h4>
@@ -1136,14 +1130,17 @@ export default function App() {
       {/* Floating Sticky Navigation Bar (Mobile Only) */}
       <div id="sticky-bottom-actions-rail" className="lg:hidden fixed bottom-5 inset-x-0 z-40 px-6 flex justify-center pointer-events-none">
         <nav className="bg-[#1c1b1b]/95 backdrop-blur-xl border border-[#f2ca50]/30 w-[320px] rounded-full shadow-[0_8px_32px_rgba(242,202,80,0.14)] flex justify-around items-center py-2 px-1 pointer-events-auto">
-          
+
           <a
             href="https://wa.me/918271712580"
             target="_blank"
             rel="noreferrer"
             className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#f2ca50] py-2 px-4 rounded-full hover:bg-[#f2ca50]/10 transition-all font-sans cursor-pointer text-center"
           >
-            <MessageSquare size={15} />
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M12.031 0C5.385 0 0 5.385 0 12.032c0 2.128.552 4.195 1.605 6.012L.014 24l6.136-1.608A11.96 11.96 0 0 0 12.031 24c6.643 0 12.032-5.384 12.032-12.031C24.063 5.385 18.674 0 12.031 0zm0 21.996c-1.794 0-3.551-.482-5.09-1.39l-.365-.216-3.784.992.992-3.69-.236-.376a9.96 9.96 0 0 1-1.524-5.289c0-5.512 4.485-9.997 9.997-9.997 5.513 0 9.997 4.485 9.997 9.997 0 5.512-4.484 9.997-9.997 9.997z"/>
+              <path d="M17.5 14.381c-.301-.15-1.767-.866-2.041-.965-.274-.1-.473-.15-.673.15-.197.295-.771.964-.944 1.161-.174.196-.349.21-.645.065-.302-.15-1.265-.462-2.406-1.485-.888-.795-1.484-1.77-1.659-2.07-.174-.3-.02-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.098-.202.049-.382-.029-.533-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"/>
+            </svg>
             WhatsApp
           </a>
 
@@ -1172,7 +1169,7 @@ export default function App() {
               onClick={() => setIsReservationsPanelOpen(false)}
               className="absolute inset-0 bg-black backdrop-blur-xs"
             />
-            
+
             {/* Draw side menu container */}
             <motion.div
               initial={{ x: '100%' }}
@@ -1201,8 +1198,8 @@ export default function App() {
 
               {/* Scroll Content panel list */}
               <div className="p-6 flex-grow overflow-y-auto space-y-4 select-none">
-                <MyBookings 
-                  bookingsTrigger={bookingsTrigger} 
+                <MyBookings
+                  bookingsTrigger={bookingsTrigger}
                   onCancelBooking={handleCancelBooking}
                 />
               </div>
@@ -1213,7 +1210,7 @@ export default function App() {
                   <Clock size={16} className="text-[#f2ca50] shrink-0 mt-0.5" />
                   <span>Please arrive 10 minutes prior to your scheduled therapy to check-in, enjoy welcome beverages, and adjust steam settings.</span>
                 </div>
-                
+
                 <button
                   onClick={() => {
                     setIsReservationsPanelOpen(false);
@@ -1234,7 +1231,7 @@ export default function App() {
       <AnimatePresence>
         {isBookingModalOpen && (
           <div id="booking-modal-overlay" className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
@@ -1250,7 +1247,7 @@ export default function App() {
               className="relative w-full max-w-md bg-[#131313] border border-[#f2ca50]/30 rounded shadow-2xl backdrop-blur-xl z-10 max-h-[85vh] flex flex-col"
             >
               <div className="p-5 sm:p-8 overflow-y-auto custom-scrollbar flex-grow">
-                
+
                 {/* Header title */}
                 <div className="flex justify-between items-center mb-6 pb-3 border-b border-[#f2ca50]/10">
                   <div className="text-left space-y-0.5">

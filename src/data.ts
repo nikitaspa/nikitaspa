@@ -1,4 +1,12 @@
 import { Treatment, Review, WellnessPackage } from './types';
+import img1 from '../assets/images/premium-spa-massage-therapy.png';
+import img2 from '../assets/images/tranquil-spa-room-environment.png';
+import img3 from '../assets/images/luxury-spa-wellness-amenities.png';
+import img4 from '../assets/images/holistic-healing-spa-treatment.png';
+import img5 from '../assets/images/aromatherapy-essential-oils-session.png';
+import img6 from '../assets/images/deep-tissue-massage-therapy.png';
+import img7 from '../assets/images/private-couple-spa-suite.png';
+import img8 from '../assets/images/refreshing-spa-ambiance.png';
 
 export const HERO_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuD37L9DKqkWGlB5lcUl8mU0_KAwV-ZM70pdCruFDeh10eU0c0_mI9qlZv4Y-5dfQgtduY_9oas4SKpAhj7hwimeMqJq2M_2z8rEEuOQZLIuZYkHMAQgxZi7fafKVkueh-A9VjlptpVqw7NNBTLxvDSXwvnfHzo8woxIXbqIhCjqCsCwnZ6xnK9it_lw_mBso_d_DDQPbT6Cm9JGtAm_HlbqYS1hfOOdBk-wziYo81QUbP25Jmk7XbXzAQJ2D8zz9yRhIGuSh2okN3Ml';
 
@@ -8,29 +16,44 @@ export const STATIC_MAP_IMAGE = 'https://lh3.googleusercontent.com/aida-public/A
 
 export const GALLERY_IMAGES = [
   {
-    url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200',
-    title: 'Serene Lounge',
-    description: 'A cozy welcoming area with premium warm gold lighting to set your relaxed mindset.'
+    url: img1,
+    title: 'Premium Spa Therapy',
+    description: 'A skilled therapist performing a deeply relaxing massage therapy session.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=1200',
-    title: 'Private Treatment Suite',
-    description: 'Fully equipped luxury suites featuring comfortable anatomical therapy beds and soft drapes.'
+    url: img2,
+    title: 'Tranquil Environment',
+    description: 'Experience pure tranquility in our beautifully designed spa rooms.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=1200',
-    title: 'Reception & Consultation Area',
-    description: 'Our customer support team is ready to recommend personalized wellness therapies.'
+    url: img3,
+    title: 'Luxury Amenities',
+    description: 'Enjoy our state-of-the-art facilities and premium wellness amenities.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=1200',
-    title: 'Aromatic Healing & Essential Oils',
-    description: 'Only 100% steam-distilled pure organic botanical oils for our aromatherapy sessions.'
+    url: img4,
+    title: 'Holistic Healing',
+    description: 'Discover the ultimate relaxation through our holistic wellness approach.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200',
-    title: 'Relaxation Session in Action',
-    description: 'Skilled application of traditional deep muscle stretching and compression therapies.'
+    url: img5,
+    title: 'Aromatherapy Session',
+    description: 'Rejuvenate your senses with our custom essential oil blends.'
+  },
+  {
+    url: img6,
+    title: 'Deep Tissue Massage',
+    description: 'Relieve chronic muscle tension with focused therapeutic techniques.'
+  },
+  {
+    url: img7,
+    title: 'Couple Spa Suite',
+    description: 'Share a memorable and relaxing experience in our private couple suites.'
+  },
+  {
+    url: img8,
+    title: 'Refreshing Ambiance',
+    description: 'Step into a world of calm and let your stress melt away.'
   }
 ];
 
