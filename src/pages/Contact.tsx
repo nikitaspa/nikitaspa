@@ -4,11 +4,10 @@ import { MapPin, Phone, MessageSquare, ExternalLink, ChevronLeft } from 'lucide-
 import BookingForm from '../components/BookingForm';
 import { STATIC_MAP_IMAGE } from '../data';
 import { Booking } from '../types';
+import { useAppContext } from '../context/AppContext';
 
 export default function Contact() {
-  const handleBookingSuccess = (newBooking: Booking) => {
-    // Optionally handle success behavior here if needed
-  };
+  const { handleBookingSuccess } = useAppContext();
 
   return (
     <div className="bg-[#131313] min-h-screen text-[#e5e2e1] flex flex-col items-center pt-10 px-6">
@@ -19,10 +18,6 @@ export default function Contact() {
       </Helmet>
       
       <div className="w-full max-w-[1240px]">
-        <Link to="/" className="inline-flex items-center text-[#f2ca50] hover:text-white mb-8 transition-colors">
-          <ChevronLeft size={20} className="mr-1" /> Back to Home
-        </Link>
-        
         {/* Contact info, Map and Callback Request Form */}
         <section className="bg-[#0e0e0e] px-8 py-16 border border-[#f2ca50]/10 rounded-xl shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">

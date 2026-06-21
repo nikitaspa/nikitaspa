@@ -36,6 +36,7 @@ import {
   STATIC_MAP_IMAGE
 } from '../data';
 import { Booking } from '../types';
+import { useAppContext } from '../context/AppContext';
 
 // Importing custom modular components
 import Lightbox from '../components/Lightbox';
@@ -68,55 +69,7 @@ const HERO_SLIDES = [
 ];
 
 export default function Home() {
-  // Navigation states
-  const [activeSection, setActiveSection] = useState('home');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [headerScrolled, setHeaderScrolled] = useState(false);
-
-  // Interaction core states
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [preSelectedService, setPreSelectedService] = useState('');
-  const [isReservationsPanelOpen, setIsReservationsPanelOpen] = useState(false);
-
-  // Real-time synchronization
-  const [bookingsTrigger, setBookingsTrigger] = useState(0);
-  const [activeBookingCount, setActiveBookingCount] = useState(0);
-
-  // Gallery filters and lightboxes
-  const [galleryFilter, setGalleryFilter] = useState<'all' | 'rooms' | 'healing'>('all');
-  const [lightbox, setLightbox] = useState({
-    isOpen: false,
-    url: '',
-    title: '',
-    desc: ''
-  });
-
-  // Interactive FAQs state
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
-  // Hero section active slide states
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Autoplay effect for the hero slider
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000); // auto-slide every 6s
-    return () => clearInterval(interval);
-  }, []);
-
-  // Load booking count on boot
-  useEffect(() => {
-    const raw = localStorage.getItem('nikita_spa_bookings');
-    if (raw) {
-      try {
-        const list: Booking[] = JSON.parse(raw);
-        setActiveBookingCount(list.length);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  }, [bookingsTrigger]);
+  const { triggerInstantBooking, setBookingsTrigger } = useAppContext();
 
   // Global scroll listener for sticky header & navigation highlight tracker
   useEffect(() => {
@@ -148,24 +101,11 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleBookingSuccess = (newBooking: Booking) => {
-    // Refresh parent state indicators
-    setBookingsTrigger(prev => prev + 1);
+  
 
-    // Auto collapse modal state after short delay
-    setTimeout(() => {
-      setIsBookingModalOpen(false);
-    }, 2500);
-  };
+  
 
-  const handleCancelBooking = () => {
-    setBookingsTrigger(prev => prev + 1);
-  };
 
-  const triggerInstantBooking = (serviceId: string) => {
-    setPreSelectedService(serviceId);
-    setIsBookingModalOpen(true);
-  };
 
   const scrollToElement = (id: string) => {
     setMobileMenuOpen(false);
@@ -242,166 +182,12 @@ export default function Home() {
     <div className="bg-[#131313] text-[#e5e2e1] font-sans overflow-x-hidden min-h-screen flex flex-col selection:bg-[#f2ca50]/20 selection:text-[#f2ca50]">
 
       {/* Sticky Header TopAppBar */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${headerScrolled
-            ? 'bg-[#131313]/95 backdrop-blur-xl py-3 shadow-lg border-[#f2ca50]/15'
-            : 'bg-[#131313]/70 backdrop-blur-md py-5 border-transparent'
-          }`}
-      >
-        <div className="max-w-[1240px] mx-auto px-6 flex justify-between items-center">
+      
 
-          {/* Brand Logo */}
-          <div
-            onClick={() => scrollToElement('home')}
-            className="flex items-center gap-2 cursor-pointer group"
-          >
-            <motion.div
-              whileHover={{ rotate: 15 }}
-              className="w-10 h-10 rounded-full bg-[#f2ca50]/10 border border-[#f2ca50]/30 flex items-center justify-center text-[#f2ca50]"
-            >
-              <Leaf size={20} className="fill-[#f2ca50]/10" />
-            </motion.div>
-            <div>
-              <div className="font-serif text-lg md:text-xl text-[#f2ca50] tracking-[0.22em] font-bold uppercase transition-colors group-hover:text-white">
-                NIKITA SPA
-              </div>
-              <span className="text-[9px] tracking-[0.3em] uppercase block text-[#d0c5af] font-sans -mt-0.5">Viman Nagar, Pune</span>
-            </div>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex gap-8 items-center text-xs font-semibold tracking-widest font-sans uppercase">
-            {[
-              { id: 'about', label: 'About' },
-              { id: 'gallery', label: 'Gallery' },
-              { id: 'services', label: 'Treatments' },
-              { id: 'pricing', label: 'Pricing' },
-              { id: 'reviews', label: 'Feedback' },
-              { id: 'contact', label: 'Contact' }
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToElement(item.id)}
-                className={`transition-colors cursor-pointer relative pb-1 border-b-2 ${activeSection === item.id
-                    ? 'text-[#f2ca50] border-[#f2ca50]'
-                    : 'text-[#d0c5af] border-transparent hover:text-white'
-                  }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Action Hub (My Bookings Trigger & CTA Button) */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Live Reservations Status Button */}
-            <button
-              onClick={() => setIsReservationsPanelOpen(true)}
-              className="relative p-2 text-[#d0c5af] hover:text-[#f2ca50] hover:bg-white/5 rounded-full cursor-pointer transition-all flex items-center gap-2"
-              title="View my active bookings"
-            >
-              <div className="relative">
-                <Calendar size={20} />
-                {activeBookingCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#f2ca50] text-[#3c2f00] text-[10px] h-4 w-4 rounded-full flex items-center justify-center font-bold font-sans animate-bounce">
-                    {activeBookingCount}
-                  </span>
-                )}
-              </div>
-              <span className="text-xs font-sans font-medium tracking-wide">My Bookings</span>
-            </button>
-
-            {/* Float Booking CTA */}
-            <button
-              onClick={() => triggerInstantBooking('')}
-              className="bg-[#f2ca50] text-[#3c2f00] hover:brightness-110 active:scale-95 px-6 py-2.5 rounded text-xs font-bold font-sans uppercase tracking-wider transition-all cursor-pointer"
-            >
-              BOOK NOW
-            </button>
-          </div>
-
-          {/* Mobile Right Bar Hub (Hamburger & Reservations Tracker) */}
-          <div className="flex lg:hidden items-center gap-3">
-            <button
-              onClick={() => setIsReservationsPanelOpen(true)}
-              className="relative p-2 text-[#d0c5af] hover:text-[#f2ca50]"
-              aria-label="Toggle Reservations"
-            >
-              <Calendar size={22} />
-              {activeBookingCount > 0 && (
-                <span className="absolute top-0 right-0 bg-[#f2ca50] text-[#3c2f00] text-[9px] h-4.5 w-4.5 rounded-full flex items-center justify-center font-bold font-sans">
-                  {activeBookingCount}
-                </span>
-              )}
-            </button>
-
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#f2ca50]"
-              aria-label="Open Mobile Menu"
-            >
-              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-            </button>
-          </div>
-
-        </div>
-      </header>
-
-      {/* Mobile Drawer Navigation Panel */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[70px] bg-[#1a1a1a] z-40 border-b border-[#f2ca50]/15 lg:hidden px-6 py-8 shadow-2xl space-y-6"
-          >
-            <div className="flex flex-col gap-5 text-center text-xs font-semibold tracking-[0.2em] uppercase font-sans">
-              {[
-                { id: 'about', label: 'About Our Sanctuary' },
-                { id: 'gallery', label: 'Ambience Photo Tour' },
-                { id: 'services', label: 'Signature Massages' },
-                { id: 'pricing', label: 'Curated Wellness Packages' },
-                { id: 'reviews', label: 'Guest Testimonials' },
-                { id: 'contact', label: 'Visit / Map Location' }
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToElement(item.id)}
-                  className="text-[#d0c5af] hover:text-[#f2ca50] transition-colors py-1 block"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            <div className="pt-4 border-t border-[#4d4635]/20 flex flex-col gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  triggerInstantBooking('');
-                }}
-                className="w-full bg-[#f2ca50] text-[#3c2f00] py-3.5 rounded text-xs font-bold tracking-widest uppercase font-sans text-center transition-all cursor-pointer"
-              >
-                SCHEDULE APPOINTMENT
-              </button>
-
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsReservationsPanelOpen(true);
-                }}
-                className="w-full bg-transparent border border-[#f2ca50]/40 text-[#f2ca50] py-3 rounded text-xs font-bold tracking-widest uppercase font-sans text-center transition-all cursor-pointer"
-              >
-                VIEW MY RESERVATIONS ({activeBookingCount})
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      
 
       {/* Main Body */}
-      <main className="flex-grow pt-[80px]">
+      <div className="flex-grow">
 
         {/* Hero Section with Interactive Slider */}
         <section id="home" className="relative min-h-[92vh] flex items-center justify-center text-center overflow-hidden">
@@ -1057,225 +843,16 @@ export default function Home() {
           </div>
         </section>
 
-      </main>
-
-      {/* Structured Footer */}
-      <footer className="w-full pt-20 pb-28 bg-[#111] border-t border-white/[0.05]">
-        <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-
-          {/* Brand Col */}
-          <div className="space-y-4">
-            <h4 className="font-serif text-2xl text-[#f2ca50] tracking-widest font-bold uppercase">NIKITA SPA</h4>
-            <p className="font-sans text-xs md:text-sm text-[#d0c5af]/80 leading-relaxed">
-              The definitive luxury wellness retreat in Viman Nagar, Pune. Experience premium relaxation tailored with certified therapists and customized candle treatments.
-            </p>
-          </div>
-
-          {/* Links Col */}
-          <div>
-            <h5 className="font-sans text-xs font-bold text-white tracking-[0.2em] mb-6 uppercase">QUICK DIRECTORY</h5>
-            <ul className="space-y-3 text-xs text-[#d0c5af] font-sans">
-              <li>
-                <button onClick={() => scrollToElement('services')} className="hover:text-[#f2ca50] transition-colors uppercase">
-                  Signature Treatments
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToElement('pricing')} className="hover:text-[#f2ca50] transition-colors uppercase">
-                  Curated Wellness Bundles
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToElement('faq')} className="hover:text-[#f2ca50] transition-colors uppercase">
-                  Safety FAQ Accordions
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToElement('contact')} className="hover:text-[#f2ca50] transition-colors uppercase">
-                  Reception Contact Desk
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Timing Col */}
-          <div>
-            <h5 className="font-sans text-xs font-bold text-white tracking-[0.2em] mb-6 uppercase">OPENING CALENDAR</h5>
-            <p className="font-sans text-xs md:text-sm text-[#d0c5af]/80 leading-relaxed">
-              MONDAY TO SUNDAY<br />
-              <span className="text-[#f2ca50] font-semibold font-mono">10:00 AM - 09:00 PM</span><br />
-              Open on public holidays. Secure lockers and aromatic showers available.
-            </p>
-            <div className="flex gap-4 mt-6">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-[#f2ca50] border border-white/5 hover:bg-[#f2ca50]/15" aria-label="Social Link">
-                <BookOpen size={16} />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-[#f2ca50] border border-white/5 hover:bg-[#f2ca50]/15" aria-label="Social Link">
-                <Sparkles size={16} />
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="max-w-[1240px] mx-auto px-6 mt-16 pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between text-[11px] text-[#d0c5af]/40 tracking-wider font-sans">
-          <span>© 2026 NIKITA SPA VIMAN NAGAR, PUNE. ALL RIGHTS RESERVED.</span>
-          <div className="flex gap-6 mt-4 sm:mt-0 font-sans">
-            <a href="#" className="hover:text-[#f2ca50] uppercase transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#f2ca50] uppercase transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
-
-      {/* Floating Sticky Navigation Bar (Mobile Only) */}
-      <div id="sticky-bottom-actions-rail" className="lg:hidden fixed bottom-5 inset-x-0 z-40 px-6 flex justify-center pointer-events-none">
-        <nav className="bg-[#1c1b1b]/95 backdrop-blur-xl border border-[#f2ca50]/30 w-[320px] rounded-full shadow-[0_8px_32px_rgba(242,202,80,0.14)] flex justify-around items-center py-2 px-1 pointer-events-auto">
-
-          <a
-            href="https://wa.me/918271712580"
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#f2ca50] py-2 px-4 rounded-full hover:bg-[#f2ca50]/10 transition-all font-sans cursor-pointer text-center"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <path d="M12.031 0C5.385 0 0 5.385 0 12.032c0 2.128.552 4.195 1.605 6.012L.014 24l6.136-1.608A11.96 11.96 0 0 0 12.031 24c6.643 0 12.032-5.384 12.032-12.031C24.063 5.385 18.674 0 12.031 0zm0 21.996c-1.794 0-3.551-.482-5.09-1.39l-.365-.216-3.784.992.992-3.69-.236-.376a9.96 9.96 0 0 1-1.524-5.289c0-5.512 4.485-9.997 9.997-9.997 5.513 0 9.997 4.485 9.997 9.997 0 5.512-4.484 9.997-9.997 9.997z"/>
-              <path d="M17.5 14.381c-.301-.15-1.767-.866-2.041-.965-.274-.1-.473-.15-.673.15-.197.295-.771.964-.944 1.161-.174.196-.349.21-.645.065-.302-.15-1.265-.462-2.406-1.485-.888-.795-1.484-1.77-1.659-2.07-.174-.3-.02-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.098-.202.049-.382-.029-.533-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"/>
-            </svg>
-            WhatsApp
-          </a>
-
-          <div className="w-[1px] h-6 bg-[#f2ca50]/20 shrink-0" />
-
-          <a
-            href="tel:+918271712580"
-            className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#f2ca50] py-2 px-4 rounded-full hover:bg-[#f2ca50]/10 transition-all font-sans cursor-pointer text-center"
-          >
-            <Phone size={15} />
-            Call Now
-          </a>
-
-        </nav>
       </div>
 
-      {/* Private Slide-over Panel for Active Guest Reservations */}
-      <AnimatePresence>
-        {isReservationsPanelOpen && (
-          <div id="reservations-backdrop" className="fixed inset-0 z-[120] flex justify-end">
-            {/* Dark glass backdrop block overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsReservationsPanelOpen(false)}
-              className="absolute inset-0 bg-black backdrop-blur-xs"
-            />
+      {/* Structured Footer */}
+      
 
-            {/* Draw side menu container */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="relative w-full max-w-md bg-[#131313] border-l border-[#f2ca50]/25 h-full z-10 shadow-2xl flex flex-col justify-between"
-            >
-              {/* Header */}
-              <div className="p-6 border-b border-[#4d4635]/25 flex justify-between items-center bg-[#1c1b1b]">
-                <div className="space-y-0.5 text-left">
-                  <h2 className="font-serif text-lg text-[#f2ca50] tracking-wide font-semibold">
-                    My Sanctuary Bookings
-                  </h2>
-                  <span className="text-[10px] text-[#d0c5af]/70 tracking-widest uppercase font-sans">
-                    Live Guest Schedule Panel
-                  </span>
-                </div>
-                <button
-                  onClick={() => setIsReservationsPanelOpen(false)}
-                  className="text-[#d0c5af] hover:text-[#f2ca50] hover:bg-white/5 p-2 rounded-full cursor-pointer transition-colors"
-                >
-                  <X size={20} />
-                </button>
-              </div>
+      
 
-              {/* Scroll Content panel list */}
-              <div className="p-6 flex-grow overflow-y-auto space-y-4 select-none">
-                <MyBookings
-                  bookingsTrigger={bookingsTrigger}
-                  onCancelBooking={handleCancelBooking}
-                />
-              </div>
+      
 
-              {/* Footer CTA of panel drawer */}
-              <div className="p-6 border-t border-[#4d4635]/25 bg-[#0e0e0e]/95 space-y-4">
-                <div className="p-3 bg-[#f2ca50]/5 border border-[#f2ca50]/15 rounded text-[11px] text-[#d0c5af]/80 leading-normal flex gap-2 text-left font-sans">
-                  <Clock size={16} className="text-[#f2ca50] shrink-0 mt-0.5" />
-                  <span>Please arrive 10 minutes prior to your scheduled therapy to check-in, enjoy welcome beverages, and adjust steam settings.</span>
-                </div>
-
-                <button
-                  onClick={() => {
-                    setIsReservationsPanelOpen(false);
-                    triggerInstantBooking('');
-                  }}
-                  className="w-full bg-[#f2ca50] text-[#3c2f00] py-3 text-xs font-bold tracking-widest uppercase font-sans hover:brightness-110 active:scale-95 transition-all rounded cursor-pointer"
-                >
-                  Schedule A New Session
-                </button>
-              </div>
-
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* Dynamic Pop-up Booking Appointment Modal */}
-      <AnimatePresence>
-        {isBookingModalOpen && (
-          <div id="booking-modal-overlay" className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsBookingModalOpen(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-xs"
-            />
-
-            <motion.div
-              initial={{ scale: 0.95, y: 15 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 15 }}
-              className="relative w-full max-w-md bg-[#131313] border border-[#f2ca50]/30 rounded shadow-2xl backdrop-blur-xl z-10 max-h-[85vh] flex flex-col"
-            >
-              <div className="p-5 sm:p-8 overflow-y-auto custom-scrollbar flex-grow">
-
-                {/* Header title */}
-                <div className="flex justify-between items-center mb-6 pb-3 border-b border-[#f2ca50]/10">
-                  <div className="text-left space-y-0.5">
-                    <h2 className="font-serif text-xl text-[#f2ca50] tracking-wide font-semibold">Book Your Escape</h2>
-                    <p className="text-[10px] text-[#d0c5af] uppercase tracking-widest font-sans">Private Wellness suite reservation</p>
-                  </div>
-                  <button
-                    onClick={() => setIsBookingModalOpen(false)}
-                    className="text-[#d0c5af] hover:text-[#f2ca50] hover:bg-white/5 p-1.5 rounded-full cursor-pointer transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-
-                {/* Form component */}
-                <BookingForm
-                  initialServiceId={preSelectedService}
-                  onBookingSuccess={handleBookingSuccess}
-                  isModal={true}
-                  onCloseModal={() => setIsBookingModalOpen(false)}
-                />
-
-              </div>
-            </motion.div>
-
-          </div>
-        )}
-      </AnimatePresence>
+      
 
       {/* Lightbox Module Dialog */}
       <Lightbox
@@ -1286,19 +863,7 @@ export default function Home() {
         onClose={() => setLightbox({ isOpen: false, url: '', title: '', desc: '' })}
       />
 
-      {/* Global Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/918271712580"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-[90px] lg:bottom-8 right-6 z-[90] bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-        aria-label="Chat with us on WhatsApp"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:-rotate-12 transition-transform duration-300">
-          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-          <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
-        </svg>
-      </a>
+      
 
     </div>
   );
