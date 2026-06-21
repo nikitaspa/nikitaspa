@@ -30,6 +30,7 @@ export default function Gallery() {
                 alt={img.title}
                 className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
               <div className="absolute inset-x-0 bottom-0 p-5 text-left transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">

@@ -194,6 +194,7 @@ export default function Home() {
                   className="w-full h-full object-cover select-none pointer-events-none"
                   src={HERO_SLIDES[currentSlide].image}
                   referrerPolicy="no-referrer"
+                  fetchpriority="high"
                 />
               </motion.div>
             </AnimatePresence>
@@ -315,6 +316,7 @@ export default function Home() {
                 className="relative rounded shadow-2xl w-full aspect-[4/5] object-cover bg-black"
                 src={ABOUT_IMAGE}
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute bottom-4 left-4 bg-[#131313]/90 backdrop-blur-md p-4 rounded border border-[#f2ca50]/20 text-left">
                 <p className="font-serif text-[#f2ca50] text-sm font-semibold tracking-wider">OPPOSITE PHOENIX MARKETCITY</p>
@@ -428,6 +430,7 @@ export default function Home() {
                       alt={img.title}
                       className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 brightness-95"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
 
                     {/* Gradient Overlay bottom shadow */}
