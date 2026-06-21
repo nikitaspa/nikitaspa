@@ -11,7 +11,7 @@ export default function About() {
         <meta name="keywords" content="About Nikita Spa, Spa in Viman Nagar, Wellness Sanctuary Pune" />
       </Helmet>
       
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-[1240px] pb-24">
         <Link to="/" className="inline-flex items-center text-[#f2ca50] hover:text-white mb-8 transition-colors">
           <ChevronLeft size={20} className="mr-1" /> Back to Home
         </Link>

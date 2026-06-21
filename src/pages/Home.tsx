@@ -69,51 +69,38 @@ const HERO_SLIDES = [
 ];
 
 export default function Home() {
-  const { triggerInstantBooking, setBookingsTrigger } = useAppContext();
+  const { triggerInstantBooking, setBookingsTrigger, handleBookingSuccess, preSelectedService } = useAppContext();
 
-  // Global scroll listener for sticky header & navigation highlight tracker
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [galleryFilter, setGalleryFilter] = useState('all');
+  const [lightbox, setLightbox] = useState({ isOpen: false, url: '', title: '', desc: '' });
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  // Auto-advance hero slides
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setHeaderScrolled(true);
-      } else {
-        setHeaderScrolled(false);
-      }
-
-      // Track sections
-      const sections = ['home', 'about', 'gallery', 'services', 'pricing', 'reviews', 'faq', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sect of sections) {
-        const element = document.getElementById(sect);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sect);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
   }, []);
 
-  
-
-  
-
-
-
   const scrollToElement = (id: string) => {
-    setMobileMenuOpen(false);
     const elem = document.getElementById(id);
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+
+  
+
+  
+
+  
+
+
+
+  
 
   // Helper mapping icon key strings to Lucide components
   const getWhyChooseIcon = (iconStr: string) => {
@@ -802,24 +789,16 @@ export default function Home() {
 
               </div>
 
-              {/* Gray map image layout holding static data */}
-              <div className="relative rounded overflow-hidden mt-8 max-w-md border border-white/10 group filter grayscale hover:grayscale-0 transition-all duration-500 shadow-xl h-52">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Spa layout vicinity Map"
-                  src={STATIC_MAP_IMAGE}
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-[#131414]/90 p-2 border border-[#f2ca50]/20 rounded text-[11px] text-[#f2ca50] font-sans flex items-center gap-1 hover:brightness-125"
-                  >
-                    <ExternalLink size={12} /> Open in Navigation Maps
-                  </a>
-                </div>
+              {/* Interactive Google Map */}
+              <div className="relative rounded overflow-hidden mt-8 max-w-md border border-white/10 group hover:border-[#f2ca50]/50 transition-all duration-500 shadow-xl h-52 lg:h-64">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64986827.9704887!2d-51.79494468488215!3d6.200070455937197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1eca9074b7b%3A0x722b62a114f9062!2sNikita%20Spa!5e0!3m2!1sen!2sin!4v1782062910033!5m2!1sen!2sin" 
+                  className="w-full h-full" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
 
             </div>

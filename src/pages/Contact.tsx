@@ -82,24 +82,16 @@ export default function Contact() {
 
               </div>
 
-              {/* Gray map image layout holding static data */}
-              <div className="relative rounded overflow-hidden mt-8 max-w-md border border-white/10 group filter grayscale hover:grayscale-0 transition-all duration-500 shadow-xl h-52">
-                <img 
-                  className="w-full h-full object-cover" 
-                  alt="Spa layout vicinity Map" 
-                  src={STATIC_MAP_IMAGE} 
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="bg-[#131414]/90 p-2 border border-[#f2ca50]/20 rounded text-[11px] text-[#f2ca50] font-sans flex items-center gap-1 hover:brightness-125"
-                  >
-                    <ExternalLink size={12} /> Open in Navigation Maps
-                  </a>
-                </div>
+              {/* Interactive Google Map */}
+              <div className="relative rounded overflow-hidden mt-8 max-w-md border border-white/10 group hover:border-[#f2ca50]/50 transition-all duration-500 shadow-xl h-52 lg:h-64">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64986827.9704887!2d-51.79494468488215!3d6.200070455937197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1eca9074b7b%3A0x722b62a114f9062!2sNikita%20Spa!5e0!3m2!1sen!2sin!4v1782062910033!5m2!1sen!2sin" 
+                  className="w-full h-full" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
 
             </div>
