@@ -12,9 +12,9 @@ export default function Contact() {
   return (
     <div className="bg-[#131313] min-h-screen text-[#e5e2e1] flex flex-col items-center pt-10 px-6">
       <Helmet>
-        <title>Contact Us & Book | Nikita Spa Viman Nagar Pune</title>
-        <meta name="description" content="Get in touch with Nikita Spa in Viman Nagar, Pune. Schedule an appointment or request a callback. Call us at +91 8271712580." />
-        <meta name="keywords" content="Contact Nikita Spa, Book Spa Appointment Pune, Spa location Viman Nagar, Massage Booking Pune" />
+        <title>Contact Nikita Spa | Spa in Viman Nagar, Pune</title>
+        <meta name="description" content="Contact Nikita Spa in Viman Nagar, Pune. Call us at 8271712580 or visit our spa at Plot No 121 B, behind Roshma Riviera, Konark Nagar." />
+        <link rel="canonical" href="https://nikitaspa.shop/contact" />
       </Helmet>
       
       <div className="w-full max-w-[1240px]">
@@ -26,7 +26,7 @@ export default function Contact() {
             <div className="space-y-8 text-left">
               <div className="space-y-3">
                 <span className="font-sans text-[11px] text-[#f2ca50] font-semibold tracking-[0.25em] uppercase block">PREMIUM LOCATION</span>
-                <h1 className="font-serif text-3xl md:text-4xl text-white font-bold">Begin Your Wellness Journey</h1>
+                <h1 className="font-serif text-3xl md:text-4xl text-white font-bold">Contact Our Spa in Viman Nagar, Pune</h1>
                 <p className="font-sans text-xs md:text-sm text-[#d0c5af]">
                   Schedule your physical treatments or coordinate arrival guides with our support desk.
                 </p>

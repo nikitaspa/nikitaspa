@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import {
   Sparkles,
   Leaf,
@@ -48,8 +49,8 @@ const HERO_SLIDES = [
   {
     image: HERO_IMAGE,
     subtitle: "PREMIUM WELLNESS RETREAT",
-    boldTitle: "Premium Spa & Wellness",
-    goldTitle: "Sanctuary in Pune",
+    boldTitle: "Premium Spa & Wellness Experience in",
+    goldTitle: "Viman Nagar, Pune",
     description: "Relax. Refresh. Rejuvenate. Embark on a sensory journey of luxurious indulgence designed to restore harmonic balance to your busy body and active mind."
   },
   {
@@ -167,6 +168,11 @@ export default function Home() {
 
   return (
     <div className="bg-[#131313] text-[#e5e2e1] font-sans overflow-x-hidden min-h-screen flex flex-col selection:bg-[#f2ca50]/20 selection:text-[#f2ca50]">
+      <Helmet>
+        <title>Nikita Spa | Spa in Viman Nagar, Pune</title>
+        <meta name="description" content="Visit Nikita Spa in Viman Nagar, Pune for professional spa and wellness services in a clean, comfortable and relaxing environment. Call 8271712580." />
+        <link rel="canonical" href="https://nikitaspa.shop/" />
+      </Helmet>
 
       {/* Sticky Header TopAppBar */}
       

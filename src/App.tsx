@@ -10,6 +10,7 @@ const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Gallery = lazy(() => import('./pages/Gallery'));
+const LocalLanding = lazy(() => import('./pages/LocalLanding'));
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path="/services/:id" element={<Services />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/spa-in-viman-nagar-pune" element={<LocalLanding />} />
               </Route>
             </Routes>
           </Suspense>

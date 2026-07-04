@@ -1,12 +1,12 @@
 import { Treatment, Review, WellnessPackage } from './types';
-import img1 from '../assets/images/premium-spa-massage-therapy.webp';
-import img2 from '../assets/images/tranquil-spa-room-environment.webp';
-import img3 from '../assets/images/luxury-spa-wellness-amenities.webp';
-import img4 from '../assets/images/holistic-healing-spa-treatment.webp';
-import img5 from '../assets/images/aromatherapy-essential-oils-session.webp';
-import img6 from '../assets/images/deep-tissue-massage-therapy.webp';
-import img7 from '../assets/images/private-couple-spa-suite.webp';
-import img8 from '../assets/images/refreshing-spa-ambiance.webp';
+import img1 from '../assets/images/swedish-massage-viman-nagar.webp';
+import img2 from '../assets/images/spa-treatment-room-viman-nagar.webp';
+import img3 from '../assets/images/nikita-spa-wellness-amenities-viman-nagar.webp';
+import img4 from '../assets/images/holistic-spa-treatment-pune.webp';
+import img5 from '../assets/images/aromatherapy-massage-viman-nagar-pune.webp';
+import img6 from '../assets/images/deep-tissue-massage-viman-nagar.webp';
+import img7 from '../assets/images/couple-spa-suite-pune.webp';
+import img8 from '../assets/images/nikita-spa-interior-pune.webp';
 
 export const HERO_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuD37L9DKqkWGlB5lcUl8mU0_KAwV-ZM70pdCruFDeh10eU0c0_mI9qlZv4Y-5dfQgtduY_9oas4SKpAhj7hwimeMqJq2M_2z8rEEuOQZLIuZYkHMAQgxZi7fafKVkueh-A9VjlptpVqw7NNBTLxvDSXwvnfHzo8woxIXbqIhCjqCsCwnZ6xnK9it_lw_mBso_d_DDQPbT6Cm9JGtAm_HlbqYS1hfOOdBk-wziYo81QUbP25Jmk7XbXzAQJ2D8zz9yRhIGuSh2okN3Ml';
 
@@ -59,7 +59,7 @@ export const GALLERY_IMAGES = [
 
 export const SERVICES: Treatment[] = [
   {
-    id: 'swedish',
+    id: 'swedish-massage',
     name: 'Swedish Massage',
     description: 'Long, gliding strokes combined with rhythmic circular movements to improve blood circulation and release physical surface tension.',
     duration: 60,
@@ -68,7 +68,7 @@ export const SERVICES: Treatment[] = [
     iconName: 'Waves'
   },
   {
-    id: 'deep-tissue',
+    id: 'deep-tissue-massage',
     name: 'Deep Tissue Massage',
     description: 'Intense and firm pressure targeting the deepest layers of muscles and connective fascia. Ideal for active lifestyles and chronic stiffness.',
     duration: 90,
@@ -77,7 +77,7 @@ export const SERVICES: Treatment[] = [
     iconName: 'Activity'
   },
   {
-    id: 'arora',
+    id: 'aromatherapy-massage',
     name: 'Aroma Therapy',
     description: 'Infused with customized premium organic essential oils (lavender, eucalyptus, lemongrass) to calm the mind and soothe central nervous systems.',
     duration: 60,

@@ -34,6 +34,28 @@ export default function Services() {
         <title>{pageTitle}</title>
         <meta name="description" content={`Explore our ${serviceName} and other signature wellness therapies at Nikita Spa in Viman Nagar, Pune.`} />
         <meta name="keywords" content={`${serviceName} Pune, Swedish Massage Pune, Deep Tissue Massage Pune, Couple Spa Pune`} />
+        <link rel="canonical" href={`https://nikitaspa.shop/services${id ? `/${id}` : ''}`} />
+        {id && (
+          <script type="application/ld+json">
+            {`
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Services",
+                  "item": "https://nikitaspa.shop/services"
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "${serviceName}",
+                  "item": "https://nikitaspa.shop/services/${id}"
+                }]
+              }
+            `}
+          </script>
+        )}
       </Helmet>
       
       <div className="w-full max-w-[1240px] pb-24">
