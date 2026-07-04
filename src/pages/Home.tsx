@@ -319,8 +319,8 @@ export default function Home() {
                 loading="lazy"
               />
               <div className="absolute bottom-4 left-4 bg-[#131313]/90 backdrop-blur-md p-4 rounded border border-[#f2ca50]/20 text-left">
-                <p className="font-serif text-[#f2ca50] text-sm font-semibold tracking-wider">OPPOSITE PHOENIX MARKETCITY</p>
-                <p className="text-[11px] text-[#d0c5af] font-sans mt-0.5">Viman Nagar, Pune, Maharashtra</p>
+                <p className="font-serif text-[#f2ca50] text-sm font-semibold tracking-wider">BEHIND ROSHMA RIVIERA</p>
+                <p className="text-[11px] text-[#d0c5af] font-sans mt-0.5">Plot No 121 B, Viman Nagar, Pune</p>
               </div>
             </div>
 
@@ -753,8 +753,8 @@ export default function Home() {
                   <div>
                     <h4 className="font-sans text-sm font-semibold text-white">Spa Location Address</h4>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1 leading-relaxed">
-                      Nikita Spa, Viman Nagar, Opposite Phoenix Marketcity Mall,<br />
-                      Pune, Maharashtra 411014, India.
+                      Nikita Spa, Plot No 121 B, behind Roshma Riviera,<br />
+                      Konark Nagar, Clover Park, Viman Nagar, Pune, Maharashtra 411014.
                     </p>
                   </div>
                 </div>

@@ -43,8 +43,8 @@ export default function Contact() {
                   <div>
                     <h2 className="font-sans text-sm font-semibold text-white">Spa Location Address</h2>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1 leading-relaxed">
-                      Nikita Spa, Viman Nagar, Opposite Phoenix Marketcity Mall,<br />
-                      Pune, Maharashtra 411014, India.
+                      Nikita Spa, Plot No 121 B, behind Roshma Riviera,<br />
+                      Konark Nagar, Clover Park, Viman Nagar, Pune, Maharashtra 411014.
                     </p>
                   </div>
                 </div>
