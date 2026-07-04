@@ -161,7 +161,7 @@ export const WHY_CHOOSE_US = [
   { icon: 'Sparkles', title: 'Premium Ambience', desc: 'Calming luxury low-light scent of pure lavender oil.' },
   { icon: 'Leaf', title: 'Organic Oils', desc: 'Non-greasy, authentic cold-pressed botanical essential oils.' },
   { icon: 'MapPin', title: 'Prime Location', desc: 'Easily accessible premium point at Plot No 121 B, behind Roshma Riviera, Viman Nagar.' },
-  { icon: 'Clock', title: 'Flexible Slots', desc: 'Available late night appointments for high-intensity workdays.' },
+  { icon: 'Clock', title: '24/7 Service', desc: 'Open 24 hours a day to fit your schedule. Available late night appointments for high-intensity workdays.' },
   { icon: 'Coffee', title: 'Welcome Drink', desc: 'Complimentary traditional kokum sherbet or herbal immunity infusion tea.' }
 ];
 

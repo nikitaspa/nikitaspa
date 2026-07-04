@@ -236,7 +236,7 @@ export default function Home() {
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#f2ca50]/30 hidden sm:inline" />
                   <span className="flex items-center gap-1.5">
-                    <Clock size={16} className="text-[#f2ca50]" /> Everyday 10:00 AM - 9:00 PM
+                    <Clock size={16} className="text-[#f2ca50]" /> Open 24 Hours
                   </span>
                 </div>
 

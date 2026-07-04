@@ -60,7 +60,7 @@ export default function Footer() {
           <h5 className="font-sans text-xs font-bold text-white tracking-[0.2em] mb-6 uppercase">OPENING CALENDAR</h5>
           <p className="font-sans text-xs md:text-sm text-[#d0c5af]/80 leading-relaxed">
             MONDAY TO SUNDAY<br />
-            <span className="text-[#f2ca50] font-semibold font-mono">10:00 AM - 09:00 PM</span><br />
+            <span className="text-[#f2ca50] font-semibold font-mono">Open 24 Hours</span><br />
             Open on public holidays. Secure lockers and aromatic showers available.
           </p>
           <div className="flex gap-4 mt-6">
