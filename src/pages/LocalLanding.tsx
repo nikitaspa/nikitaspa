@@ -115,7 +115,7 @@ export default function LocalLanding() {
                 <Phone className="text-[#f2ca50] shrink-0" />
                 <div>
                   <h4 className="text-white font-semibold text-sm">Phone</h4>
-                  <p className="text-[#d0c5af] text-sm mt-1">+91 8271712580</p>
+                  <p className="text-[#d0c5af] text-sm mt-1">+91 7209621310</p>
                 </div>
               </li>
               <li className="flex gap-4">

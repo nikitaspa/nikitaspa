@@ -127,7 +127,7 @@ export default function GlobalModals() {
       <div id="sticky-bottom-actions-rail" className="lg:hidden fixed bottom-5 inset-x-0 z-40 px-6 flex justify-center pointer-events-none">
         <nav className="bg-[#1c1b1b]/95 backdrop-blur-xl border border-[#f2ca50]/30 w-[320px] rounded-full shadow-[0_8px_32px_rgba(242,202,80,0.14)] flex justify-around items-center py-2 px-1 pointer-events-auto">
           <a
-            href="https://wa.me/918271712580"
+            href="https://wa.me/917209621310"
             target="_blank"
             rel="noreferrer"
             className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#f2ca50] py-2 px-4 rounded-full hover:bg-[#f2ca50]/10 transition-all font-sans cursor-pointer text-center"
@@ -140,7 +140,7 @@ export default function GlobalModals() {
           </a>
           <div className="w-[1px] h-6 bg-[#f2ca50]/20 shrink-0" />
           <a
-            href="tel:+918271712580"
+            href="tel:+917209621310"
             className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#f2ca50] py-2 px-4 rounded-full hover:bg-[#f2ca50]/10 transition-all font-sans cursor-pointer text-center"
           >
             <Phone size={15} />
@@ -151,7 +151,7 @@ export default function GlobalModals() {
 
       {/* Global Floating WhatsApp Button */}
       <a
-        href="https://wa.me/918271712580"
+        href="https://wa.me/917209621310"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-[90px] lg:bottom-8 right-6 z-[90] bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 flex items-center justify-center group"

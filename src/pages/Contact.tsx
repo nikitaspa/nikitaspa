@@ -13,7 +13,7 @@ export default function Contact() {
     <div className="bg-[#131313] min-h-screen text-[#e5e2e1] flex flex-col items-center pt-10 px-6">
       <Helmet>
         <title>Contact Nikita Spa | Spa in Viman Nagar, Pune</title>
-        <meta name="description" content="Contact Nikita Spa in Viman Nagar, Pune. Call us at 8271712580 or visit our spa at Plot No 121 B, behind Roshma Riviera, Konark Nagar." />
+        <meta name="description" content="Contact Nikita Spa in Viman Nagar, Pune. Call us at 7209621310 or visit our spa at Plot No 121 B, behind Roshma Riviera, Konark Nagar." />
         <link rel="canonical" href="https://nikitaspa.shop/contact" />
       </Helmet>
       
@@ -56,7 +56,7 @@ export default function Contact() {
                   <div>
                     <h2 className="font-sans text-sm font-semibold text-white">Call Reception</h2>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1">
-                      +91 8271712580
+                      +91 7209621310
                     </p>
                   </div>
                 </div>
@@ -69,12 +69,12 @@ export default function Contact() {
                     <h2 className="font-sans text-sm font-semibold text-white">Instant WhatsApp booking</h2>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1">
                       <a 
-                        href="https://wa.me/918271712580" 
+                        href="https://wa.me/917209621310" 
                         target="_blank" 
                         rel="noreferrer"
                         className="text-[#f2ca50] hover:underline hover:text-white"
                       >
-                        Message on WhatsApp (+91 8271712580)
+                        Message on WhatsApp (+91 7209621310)
                       </a>
                     </p>
                   </div>

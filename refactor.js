@@ -105,7 +105,7 @@ fs.writeFileSync(path.join(srcDir, 'pages', 'Gallery.tsx'), createPage(
 fs.writeFileSync(path.join(srcDir, 'pages', 'Contact.tsx'), createPage(
   'Contact', 
   'Contact Us | Nikita Spa Viman Nagar', 
-  'Get in touch with Nikita Spa in Viman Nagar, Pune. Call us at +91 8271712580 or visit us opposite Phoenix Marketcity Mall.',
+  'Get in touch with Nikita Spa in Viman Nagar, Pune. Call us at +91 7209621310 or visit us opposite Phoenix Marketcity Mall.',
   'Contact Nikita Spa, Spa location Viman Nagar, Book spa appointment Pune'
 ));
 

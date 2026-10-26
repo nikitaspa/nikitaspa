@@ -146,7 +146,7 @@ export default function Home() {
   const faqs = [
     {
       q: 'Do I need to book an appointment beforehand?',
-      a: 'While we encourage drop-ins, our therapy rooms and premium private suites fill up rapidly. We highly suggest scheduling your session using our interactive form or direct WhatsApp line (+91 8271712580) to lock down certified therapists and preferred timings.'
+      a: 'While we encourage drop-ins, our therapy rooms and premium private suites fill up rapidly. We highly suggest scheduling your session using our interactive form or direct WhatsApp line (+91 7209621310) to lock down certified therapists and preferred timings.'
     },
     {
       q: 'Are your spa oils safe for sensitive skin profiles?',
@@ -170,7 +170,7 @@ export default function Home() {
     <div className="bg-[#131313] text-[#e5e2e1] font-sans overflow-x-hidden min-h-screen flex flex-col selection:bg-[#f2ca50]/20 selection:text-[#f2ca50]">
       <Helmet>
         <title>Nikita Spa | Spa in Viman Nagar, Pune</title>
-        <meta name="description" content="Visit Nikita Spa in Viman Nagar, Pune for professional spa and wellness services in a clean, comfortable and relaxing environment. Call 8271712580." />
+        <meta name="description" content="Visit Nikita Spa in Viman Nagar, Pune for professional spa and wellness services in a clean, comfortable and relaxing environment. Call 7209621310." />
         <link rel="canonical" href="https://nikitaspa.shop/" />
       </Helmet>
 
@@ -255,7 +255,7 @@ export default function Home() {
                     Book Appointment
                   </button>
                   <a
-                    href="https://wa.me/918271712580"
+                    href="https://wa.me/917209621310"
                     target="_blank"
                     rel="noreferrer"
                     className="w-full sm:w-auto border border-[#f2ca50] text-[#f2ca50] hover:bg-[#f2ca50]/10 font-semibold px-10 py-4 rounded text-xs tracking-widest font-sans uppercase transition-all flex items-center justify-center gap-2"
@@ -772,7 +772,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-sans text-sm font-semibold text-white">Call Reception</h4>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1">
-                      +91 8271712580
+                      +91 7209621310
                     </p>
                   </div>
                 </div>
@@ -785,12 +785,12 @@ export default function Home() {
                     <h4 className="font-sans text-sm font-semibold text-white">Instant WhatsApp booking</h4>
                     <p className="font-sans text-xs md:text-sm text-[#d0c5af]/85 mt-1">
                       <a
-                        href="https://wa.me/918271712580"
+                        href="https://wa.me/917209621310"
                         target="_blank"
                         rel="noreferrer"
                         className="text-[#f2ca50] hover:underline hover:text-white"
                       >
-                        Message on WhatsApp (+91 8271712580)
+                        Message on WhatsApp (+91 7209621310)
                       </a>
                     </p>
                   </div>
